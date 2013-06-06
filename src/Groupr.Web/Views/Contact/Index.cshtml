@@ -1,0 +1,42 @@
+﻿@model MessageViewModel
+
+@{
+  ViewBag.Title = "Index";
+}
+
+<div class="row">
+  @Html.Action("Leaders")
+</div>
+
+@using (Html.BeginForm())
+{
+  @Html.ValidationSummary(true)
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Name)
+      @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.MailAddress)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.MailAddress)
+      @Html.ValidationMessageFor(model => model.MailAddress)
+    </div>
+
+    <div class="editor-label">
+      @Html.LabelFor(model => model.Body)
+    </div>
+    <div class="editor-field">
+      @Html.EditorFor(model => model.Body)
+      @Html.ValidationMessageFor(model => model.Body)
+    </div>
+
+    <p>
+      <input type="submit" value="Create" />
+    </p>
+}

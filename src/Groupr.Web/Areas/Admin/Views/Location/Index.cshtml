@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LocationViewModel>
+
+@{
+  ViewBag.Title = "Locations";
+}
+
+<h3>Locations</h3>
+
+<p>
+  @Html.ActionLink("Create New", "Create")
+</p>
+<table class="eight">
+  <thead>
+    <tr>
+      <th>
+        @Html.DisplayNameFor(model => model.Name)
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <td>
+          @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+          @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) | @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+      </tr>
+    }
+  </tbody>
+
+</table>

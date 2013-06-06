@@ -1,0 +1,34 @@
+﻿@model EditableMeetingViewModel
+
+@{
+  ViewBag.Title = "Meeting erstellen";
+}
+
+<h3>Meeting erstellen</h3>
+
+@using (Html.BeginForm())
+{
+  
+  @Html.LabelFor(model => model.Locations)
+  @Html.DropDownListFor(model => model.Event.LocationId, Model.Locations)
+
+  @Html.LabelFor(model => model.Event.Name)
+  @Html.EditorFor(model => model.Event.Name)
+
+  @Html.LabelFor(model => model.Event.Abstract)
+  @Html.EditorFor(model => model.Event.Abstract)
+
+  @Html.LabelFor(model => model.Event.SpeakerName)
+  @Html.EditorFor(model => model.Event.SpeakerName)
+
+  @Html.LabelFor(model => model.Event.SpeakerWebSite)
+  @Html.EditorFor(model => model.Event.SpeakerWebSite)
+
+  @Html.LabelFor(model => model.Event.StartDate)
+  @Html.EditorFor(model => model.Event.StartDate)
+
+  @Html.LabelFor(model => model.Event.EndDate)
+  @Html.EditorFor(model => model.Event.EndDate)
+
+  <input type="submit" class="small button" value="Erstellen" />
+}

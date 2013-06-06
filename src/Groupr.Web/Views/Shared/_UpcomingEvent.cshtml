@@ -1,0 +1,38 @@
+﻿@model UpcomingEventViewModel
+<section class="section-border primary">
+  <div class="row" itemscope itemtype="http://schema.org/EducationEvent">
+    <div class="three columns">
+      <div>
+        <time itemprop="startDate" datetime="2013-02-21T19:00">21.02. um 19 Uhr</time>
+      </div>
+      <div itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
+        <div itemprop="name">
+          <a href="@Model.Location.WebSite" itemprop="url">@Model.Location.Name</a>
+        </div>
+        <div itemprop="streetAddress">
+          @Model.Location.Street
+        </div>
+        <div>
+          <span itemprop="postalCode">@Model.Location.ZipCode</span> <span itemprop="addressLocality">@Model.Location.City</span>
+        </div>
+      </div>
+      @if (!string.IsNullOrEmpty(Model.Event.ExternalRegistration))
+      {
+        <a class="secondary button small" href="@Model.Event.ExternalRegistration">Teilnehmen</a>
+      }
+      else
+      {
+        <a class="secondary button small" href="#">Teilnehmen</a>
+      }
+    </div>
+    <div class="nine columns">
+      <header itemprop="name">
+        <h4>@Model.Event.SpeakerName</h4>
+        <h2>@Model.Event.Name</h2>
+      </header>
+      <p itemprop="description">
+        @Model.Event.Abstract
+      </p>
+    </div>
+  </div>
+</section>

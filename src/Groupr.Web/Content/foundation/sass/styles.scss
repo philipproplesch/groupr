@@ -1,0 +1,33 @@
+﻿@import "variables";
+
+$sectionBorderBackgroundColor: #0099CC;
+$sectionBorderColor: #FFFFFF;
+
+.section-border {
+	background-color: $sectionBorderBackgroundColor;
+	padding: 20px 0;
+}
+
+.section-border.primary {
+	background-color: $mainColor;
+	padding: 20px 0;
+}
+
+.section-border {
+	#{headings(all)} {
+		color: $sectionBorderColor;
+		font-weight: 300;
+	}
+}
+
+#main-content {
+	margin-top: 20px;
+}
+
+#main-content h1 {
+	font-weight: 300;
+}
+
+footer#main-footer {
+
+}
