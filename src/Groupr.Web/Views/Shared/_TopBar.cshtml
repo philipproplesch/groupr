@@ -8,8 +8,8 @@
         <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
         @*<li>@Html.ActionLink("Sponsoren", "Index", "Sponsors", new { area = "" }, null)</li>*@
         @*<li>@Html.ActionLink("Kontakt", "Index", "Contact", new { area = "" }, null)</li>*@
-        <li><a href="https://www.facebook.com/groups/dotnetug/" target="_blank"><i class="icon-facebook"></i>Facebook</a></li>
-        <li><a href="https://twitter.com/dotNETug" target="_blank"><i class="icon-twitter"></i>Twitter</a></li>
+        <li><a href="https://www.facebook.com/groups/dotnetug/" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
+        <li><a href="https://twitter.com/dotNETug" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
         @if (User.Identity.IsAuthenticated && User.IsInRole(WebRoles.Leader))
         {
           <li class="divider"></li>
