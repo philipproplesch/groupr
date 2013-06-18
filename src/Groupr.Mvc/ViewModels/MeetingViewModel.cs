@@ -5,6 +5,8 @@ namespace Groupr.Mvc.ViewModels
 {
     public class MeetingViewModel
     {
+        public int Id { get; set; } 
+
         [Required]
         public string Name { get; set; }
 
