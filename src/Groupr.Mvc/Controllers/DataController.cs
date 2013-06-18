@@ -13,7 +13,7 @@ namespace Groupr.Mvc.Controllers
     public class DataController : Controller
     {
 #if DEBUG
-        private Type[] types =
+        private readonly Type[] _types =
             new[] {
                 typeof (Location),
                 typeof (Meeting),
@@ -31,7 +31,7 @@ namespace Groupr.Mvc.Controllers
         {
             using (var connection = Database.Factory.OpenDbConnection())
             {
-                connection.DropTables(types);
+                connection.DropTables(_types);
             }
 
             return Content("Finished!", "text/plain");
@@ -41,7 +41,7 @@ namespace Groupr.Mvc.Controllers
         {
             using (var connection = Database.Factory.OpenDbConnection())
             {
-                connection.CreateTables(false, types);
+                connection.CreateTables(false, _types);
             }
 
             return Content("Finished!", "text/plain");

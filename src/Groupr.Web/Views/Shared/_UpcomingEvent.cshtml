@@ -24,6 +24,7 @@
       {
         <a class="secondary button small" href="#">Teilnehmen</a>
       }
+      @Html.ActionLink("iCal", "Ical", "Meeting", new { id = Model.Event.Id }, null)
     </div>
     <div class="nine columns">
       <header itemprop="name">

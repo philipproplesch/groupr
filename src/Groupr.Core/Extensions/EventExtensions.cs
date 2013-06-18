@@ -15,12 +15,12 @@ namespace Groupr.Core.Extensions
             builder.AppendLine("BEGIN:VEVENT");
 
             builder.AppendFormat(
-                "DTSTART: {0}\r\n", 
-                instance.StartDate.ToString("yyyyMMddTHHmmss"));
+                "DTSTART: {0}\r\n",
+                instance.StartDate.ToUniversalTime().ToString("yyyyMMddTHHmmssZ"));
 
             builder.AppendFormat(
-                "DTEND: {0}\r\n", 
-                instance.EndDate.ToString("yyyyMMddTHHmmss"));
+                "DTEND: {0}\r\n",
+                instance.EndDate.ToUniversalTime().ToString("yyyyMMddTHHmmssZ"));
 
             builder.AppendFormat(
                 "SUMMARY: {0}\r\n", 

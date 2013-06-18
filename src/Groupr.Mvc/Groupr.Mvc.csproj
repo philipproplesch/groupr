@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\MeetingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationController.cs" />
+    <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Extensions\AreaRegistrationContextExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />

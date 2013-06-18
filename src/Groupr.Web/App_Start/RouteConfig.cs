@@ -16,16 +16,17 @@ namespace Groupr.Web
                 defaults: new { controller = "Home", action = "Imprint" }
             );
 
-            routes.MapLowercaseRoute(
-                name: "NewsletterOptInOut",
-                url: "{controller}/{action}/{token}",
-                defaults: new { controller = "Home", action = "Index" }
-            );
+            //routes.MapLowercaseRoute(
+            //    name: "NewsletterOptInOut",
+            //    url: "{controller}/{action}/{token}",
+            //    defaults: new { controller = "Home", action = "Index" }
+            //);
 
             routes.MapLowercaseRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "Groupr.Mvc.Controllers" }
             );
         }
     }

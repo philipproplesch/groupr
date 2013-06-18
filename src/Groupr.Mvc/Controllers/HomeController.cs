@@ -1,11 +1,8 @@
 ﻿using System.Web.Mvc;
-using System.Web.Security;
 using AutoMapper;
 using Groupr.Core.Models;
 using Groupr.Core.Repositories.Common;
-using Groupr.Core.Security;
 using Groupr.Mvc.ViewModels;
-using WebMatrix.WebData;
 
 namespace Groupr.Mvc.Controllers
 {
