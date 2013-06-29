@@ -153,6 +153,10 @@
     <Content Include="Content\foundation\stylesheets\styles.css" />
     <Content Include="Content\groupr.compability.css" />
     <Content Include="Content\images\logo-ineta-deutschland-user-group.png" />
+    <Content Include="Content\images\sponsors\jetbrains.png" />
+    <Content Include="Content\images\sponsors\microsoft.png" />
+    <Content Include="Content\images\sponsors\pluralsight.png" />
+    <Content Include="Content\images\sponsors\telerik.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\groupr.compability.js" />
     <Content Include="Scripts\groupr.js" />
@@ -204,6 +208,7 @@
     <Content Include="Views\Home\Imprint.cshtml" />
     <Content Include="Views\Shared\_Analytics.cshtml" />
     <Content Include="Scripts\jquery-2.0.2.min.map" />
+    <Content Include="Views\Sponsors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
