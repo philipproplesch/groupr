@@ -17,6 +17,7 @@ namespace Groupr.Web
                     .Include(
                         "~/Content/font-awesome.css",
                         "~/Content/foundation/stylesheets/app.css",
+                        "~/Content/foundation/stylesheets/styles.css",
                         "~/Content/groupr.forms.css",
                         "~/Content/groupr.compability.css"));
         }
@@ -31,8 +32,9 @@ namespace Groupr.Web
             bundles.Add(
                 new ScriptBundle("~/bundles/jquery")
                     .Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-migrate-{version}.js"));
+                        "~/Content/foundation/javascripts/vendor/jquery.js"));
+                        //"~/Scripts/jquery-{version}.js",
+                        //"~/Scripts/jquery-migrate-{version}.js"));
 
             bundles.Add(
                 new ScriptBundle("~/bundles/validation")
@@ -43,9 +45,8 @@ namespace Groupr.Web
             bundles.Add(
                 new ScriptBundle("~/bundles/foundation")
                     .Include(
-                        //"~/Content/foundation/javascripts/foundation/modernizr.foundation.js",
-                        "~/Content/foundation/javascripts/foundation/jquery.foundation*",
-                        "~/Content/foundation/javascripts/foundation/app.js"));
+                        "~/Content/foundation/javascripts/foundation/foundation.js",
+                        "~/Content/foundation/javascripts/foundation/foundation.*"));
 
             bundles.Add(
                 new ScriptBundle("~/bundles/groupr")

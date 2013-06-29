@@ -1,7 +1,7 @@
 ﻿@model List<MemberViewModel>
 @foreach (var member in Model)
 {
-  <div class="six columns">
+  <div class="large-6 columns">
     <div class="panel">
       <h5>@member.FirstName @member.LastName</h5>
       @Html.Gravatar(member.MailAddress)
