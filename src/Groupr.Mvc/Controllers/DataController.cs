@@ -46,6 +46,14 @@ namespace Groupr.Mvc.Controllers
 
             return Content("Finished!", "text/plain");
         }
+
+        public ActionResult RecreateSchema()
+        {
+            DropSchema();
+            CreateSchema();
+
+            return Content("Finished!", "text/plain");
+        }
 #endif
     }
 }

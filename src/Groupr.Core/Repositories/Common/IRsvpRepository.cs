@@ -4,6 +4,6 @@ namespace Groupr.Core.Repositories.Common
 {
     public interface IRsvpRepository
     {
-        bool RsvpMist(Rsvp rsvp);
+        bool UpdateRsvp(Rsvp rsvp);
     }
 }

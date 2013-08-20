@@ -38,6 +38,8 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
+            var location = _locationRepository.GetLocationById(meeting.LocationId);
+
             var ics = meeting.ToIcs();
             using (var ms = new MemoryStream())
             {
@@ -54,12 +56,18 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                     email.FirstName = member.FirstName;
 
                     email.MeetingId = meeting.Id;
-
+                    
                     email.Name = meeting.Name;
                     email.Abstract = meeting.Abstract;
                     email.StartDate = meeting.StartDate;
                     email.SpeakerName = meeting.SpeakerName;
                     email.SpeakerWebSite = meeting.SpeakerWebSite;
+
+                    email.LocationName = location.Name;
+                    email.LocationStreet = location.Street;
+                    email.LocationZipCode = location.ZipCode;
+                    email.LocationCity = location.City;
+                    email.LocationWebSite = location.WebSite;
 
                     email.Attach(attachment);
                     email.Send();

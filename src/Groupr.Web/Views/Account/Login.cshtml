@@ -16,4 +16,6 @@
   @Html.EditorFor(model => model.Password)
 
   <input type="submit" class="small button" value="Anmelden" />
+  
+  @Html.ActionLink("Passwort vergessen?", "ForgotPassword", null, new { @class="small button success" })
 }

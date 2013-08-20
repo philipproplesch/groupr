@@ -23,7 +23,7 @@ namespace Groupr.Mvc.Controllers
             var profile = 
                 _memberRepository.GetMemberByUserName(User.Identity.Name);
 
-            _rsvpRepository.RsvpMist(new Rsvp
+            _rsvpRepository.UpdateRsvp(new Rsvp
                 {
                     MemberId = profile.UserId,
                     EventId = id,
@@ -38,7 +38,7 @@ namespace Groupr.Mvc.Controllers
             var profile =
                 _memberRepository.GetMemberByUserName(User.Identity.Name);
 
-            _rsvpRepository.RsvpMist(new Rsvp
+            _rsvpRepository.UpdateRsvp(new Rsvp
             {
                 MemberId = profile.UserId,
                 EventId = id,

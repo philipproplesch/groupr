@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using Groupr.Mvc.ViewModels;
+using Postal;
 using WebMatrix.WebData;
 
 namespace Groupr.Mvc.Controllers
@@ -38,6 +39,47 @@ namespace Groupr.Mvc.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
+        }
+
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (!WebSecurity.UserExists(model.MailAddress))
+            {
+                return View();
+            }
+
+            var token =
+                WebSecurity.GeneratePasswordResetToken(model.MailAddress);
+
+            dynamic email = new Email("ChangePassword");
+            email.To = model.MailAddress;
+            email.ResetLink = Url.Action("ChangePassword", "Account", new { token }, Request.Url.Scheme);
+
+            email.Send();
+
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult ChangePassword(string token)
+        {
+            return View(new ChangePasswordViewModel { Token = token });
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if (WebSecurity.ResetPassword(model.Token, model.NewPassword))
+            {
+                return RedirectToAction("Login");
+            }
+
+            return RedirectToAction("ForgotPassword");
         }
     }
 }
