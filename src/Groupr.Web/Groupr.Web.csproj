@@ -50,10 +50,6 @@
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -134,50 +130,38 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.alerts.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.clearing.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.cookie.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.dropdown.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.forms.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.interchange.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.joyride.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.magellan.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.orbit.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.placeholder.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.reveal.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.section.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.tooltips.js" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.topbar.js" />
+    <Content Include="Content\foundation\javascripts\vendor\custom.modernizr.js" />
+    <Content Include="Content\foundation\javascripts\vendor\jquery.js" />
+    <Content Include="Content\foundation\javascripts\vendor\zepto.js" />
     <Content Include="Content\groupr.forms.css" />
-    <Content Include="Content\foundation\images\foundation\orbit\bullets.jpg" />
-    <Content Include="Content\foundation\images\foundation\orbit\left-arrow-small.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\left-arrow.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\loading.gif" />
-    <Content Include="Content\foundation\images\foundation\orbit\mask-black.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\pause-black.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\right-arrow-small.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\right-arrow.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\rotator-black.png" />
-    <Content Include="Content\foundation\images\foundation\orbit\timer-black.png" />
-    <Content Include="Content\foundation\javascripts\foundation\app.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.cookie.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.event.move.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.event.swipe.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.accordion.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.alerts.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.buttons.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.clearing.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.forms.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.joyride.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.magellan.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.mediaQueryToggle.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.navigation.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.orbit.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.reveal.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.tabs.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.tooltips.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.foundation.topbar.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.offcanvas.js" />
-    <Content Include="Content\foundation\javascripts\foundation\jquery.placeholder.js" />
-    <Content Include="Content\foundation\javascripts\foundation\modernizr.foundation.js" />
     <Content Include="Content\foundation\stylesheets\app.css" />
     <Content Include="Content\foundation\stylesheets\styles.css" />
     <Content Include="Content\groupr.compability.css" />
     <Content Include="Content\images\logo-ineta-deutschland-user-group.png" />
+    <Content Include="Content\images\sponsors\jetbrains.png" />
+    <Content Include="Content\images\sponsors\microsoft.png" />
+    <Content Include="Content\images\sponsors\pluralsight.png" />
+    <Content Include="Content\images\sponsors\telerik.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\groupr.compability.js" />
     <Content Include="Scripts\groupr.js" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Content\foundation\sass\_variables.scss" />
-    <Content Include="Content\foundation\sass\styles.scss" />
     <Content Include="Areas\Admin\Views\Meeting\Index.cshtml" />
     <Content Include="Content\font\fontawesome-webfont.woff" />
     <Content Include="Content\font\fontawesome-webfont.ttf" />
@@ -185,6 +169,7 @@
     <Content Include="Content\font\FontAwesome.otf" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
+    <None Include="Properties\PublishProfiles\WATTO FS.pubxml" />
     <None Include="Scripts\jquery-2.0.2.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.2.js" />
     <Content Include="Scripts\jquery-2.0.2.min.js" />
@@ -204,6 +189,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Header.cshtml" />
@@ -224,6 +210,7 @@
     <Content Include="Views\Home\Imprint.cshtml" />
     <Content Include="Views\Shared\_Analytics.cshtml" />
     <Content Include="Scripts\jquery-2.0.2.min.map" />
+    <Content Include="Views\Sponsors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

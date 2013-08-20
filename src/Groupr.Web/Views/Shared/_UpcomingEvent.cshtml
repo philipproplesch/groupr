@@ -1,7 +1,7 @@
 ﻿@model UpcomingEventViewModel
 <section class="section-border primary">
   <div class="row" itemscope itemtype="http://schema.org/EducationEvent">
-    <div class="three columns">
+    <div class="large-3 columns">
       <div>
         <time itemprop="startDate" datetime="2013-02-21T19:00">21.02. um 19 Uhr</time>
       </div>
@@ -26,7 +26,7 @@
       }
       @Html.ActionLink("iCal", "Ical", "Meeting", new { id = Model.Event.Id }, null)
     </div>
-    <div class="nine columns">
+    <div class="large-9 columns">
       <header itemprop="name">
         <h4>@Model.Event.SpeakerName</h4>
         <h2>@Model.Event.Name</h2>

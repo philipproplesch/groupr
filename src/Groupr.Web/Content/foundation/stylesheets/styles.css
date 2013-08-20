@@ -4,13 +4,13 @@
 }
 
 .section-border.primary {
-  background-color: #7fcc2a;
   padding: 20px 0;
 }
 
 .section-border h1, .section-border h2, .section-border h3, .section-border h4, .section-border h5, .section-border h6 {
   color: white;
   font-weight: 300;
+  margin: 0;
 }
 
 #main-content {

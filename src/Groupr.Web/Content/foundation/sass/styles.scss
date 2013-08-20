@@ -9,7 +9,6 @@ $sectionBorderColor: #FFFFFF;
 }
 
 .section-border.primary {
-	background-color: $mainColor;
 	padding: 20px 0;
 }
 
@@ -17,6 +16,7 @@ $sectionBorderColor: #FFFFFF;
 	#{headings(all)} {
 		color: $sectionBorderColor;
 		font-weight: 300;
+		margin: 0;
 	}
 }
 
@@ -26,8 +26,4 @@ $sectionBorderColor: #FFFFFF;
 
 #main-content h1 {
 	font-weight: 300;
-}
-
-footer#main-footer {
-
 }
