@@ -52,6 +52,15 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                     dynamic email = new Email("Invitation");
                     email.To = member.MailAddress;
                     email.FirstName = member.FirstName;
+
+                    email.MeetingId = meeting.Id;
+
+                    email.Name = meeting.Name;
+                    email.Abstract = meeting.Abstract;
+                    email.StartDate = meeting.StartDate;
+                    email.SpeakerName = meeting.SpeakerName;
+                    email.SpeakerWebSite = meeting.SpeakerWebSite;
+
                     email.Attach(attachment);
                     email.Send();
                 }

@@ -14,31 +14,28 @@ namespace Groupr.Core.Repositories
     {
         public UserProfile OptIn(string token)
         {
-            if (WebSecurity.ConfirmAccount(token))
+            using (var connection = Database.Factory.Open())
             {
-                using (var connection = Database.Factory.Open())
+                var user =
+                    connection.FirstOrDefault<UserMembership>(
+                        u => u.ConfirmationToken == token);
+
+                if (user != null && !user.IsConfirmed && WebSecurity.ConfirmAccount(user.ConfirmationToken))
                 {
-                    var user =
-                        connection.FirstOrDefault<UserMembership>(
-                            u => u.ConfirmationToken == token);
+                    var profile =
+                        connection.GetById<UserProfile>(user.UserId);
 
-                    if (user != null)
+                    if (profile != null)
                     {
-                        var profile =
-                            connection.GetById<UserProfile>(user.UserId);
-
-                        if (profile != null)
+                        if (!Roles.IsUserInRole(
+                                profile.MailAddress,
+                                WebRoles.Member))
                         {
-                            if (!Roles.IsUserInRole(
-                                    profile.MailAddress,
-                                    WebRoles.Member))
-                            {
-                                Roles.AddUserToRole(
-                                    profile.MailAddress,
-                                    WebRoles.Member);
+                            Roles.AddUserToRole(
+                                profile.MailAddress,
+                                WebRoles.Member);
 
-                                return profile;
-                            }
+                            return profile;
                         }
                     }
                 }
@@ -60,7 +57,7 @@ namespace Groupr.Core.Repositories
                     var profile =
                         connection.GetById<UserProfile>(user.UserId);
 
-                    if (profile != null && 
+                    if (profile != null &&
                         Roles.IsUserInRole(
                             profile.MailAddress,
                             WebRoles.Member))
@@ -94,6 +91,20 @@ namespace Groupr.Core.Repositories
             }
 
             return result;
+        }
+
+        public UserProfile GetMemberByUserName(string userName)
+        {
+            using (var connection = Database.Factory.Open())
+            {
+                var user = connection.First<UserProfile>(x => x.UserName == userName);
+                if (user != null)
+                {
+                    return user;
+                }
+            }
+
+            return null;
         }
     }
 }

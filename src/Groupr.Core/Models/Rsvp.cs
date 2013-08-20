@@ -5,8 +5,8 @@ namespace Groupr.Core.Models
 {
     public class Rsvp : EntityBase
     {
-        public Guid EventId { get; set; }
-        public Guid MemberId { get; set; }
+        public int EventId { get; set; }
+        public int MemberId { get; set; }
 
         public int StatusId { get; set; }
 

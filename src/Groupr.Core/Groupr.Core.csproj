@@ -141,10 +141,12 @@
     <Compile Include="Repositories\Common\IMeetingRepository.cs" />
     <Compile Include="Repositories\Common\ILocationRepository.cs" />
     <Compile Include="Repositories\Common\IMemberRepository.cs" />
+    <Compile Include="Repositories\Common\IRsvpRepository.cs" />
     <Compile Include="Repositories\MeetingRepository.cs" />
     <Compile Include="Repositories\LocationRepository.cs" />
     <Compile Include="Repositories\MemberRepository.cs" />
     <Compile Include="Repositories\MessageRepository.cs" />
+    <Compile Include="Repositories\RsvpRepository.cs" />
     <Compile Include="Security\WebRoles.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -22,7 +22,7 @@
       }
       else
       {
-        <a class="secondary button small" href="#">Teilnehmen</a>
+        @Html.ActionLink("Teilnehmen", "Accept", "Rsvp", new { id = Model.Event.Id }, new { @class = "secondary button small" })
       }
       @Html.ActionLink("iCal", "Ical", "Meeting", new { id = Model.Event.Id }, null)
     </div>

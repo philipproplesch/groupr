@@ -8,5 +8,6 @@ namespace Groupr.Core.Repositories.Common
         UserProfile OptIn(string token);
         UserProfile OptOut(string token);
         List<UserProfile> GetUsers();
+        UserProfile GetMemberByUserName(string userName);
     }
 }

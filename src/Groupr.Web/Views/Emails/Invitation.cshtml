@@ -7,10 +7,10 @@ Hallo @ViewBag.FirstName,
 am @ViewBag.StartDate.ToShortDateString() um @ViewBag.StartDate.ToShortTimeString() findet das nächste Treffen statt.
 
 Ja, ich bin dabei!
-http://...
+@Url.Action("Accept", "Rsvp", new { id = ViewBag.MeetingId }, Request.Url.Scheme)
 
 Ich bin nicht dabei...
-http://...
+@Url.Action("Decline", "Rsvp", new { id = ViewBag.MeetingId }, Request.Url.Scheme)
 
 Thema
 =====
