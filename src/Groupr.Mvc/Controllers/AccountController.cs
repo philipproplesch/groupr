@@ -59,7 +59,7 @@ namespace Groupr.Mvc.Controllers
 
             dynamic email = new Email("ChangePassword");
             email.To = model.MailAddress;
-            email.ResetLink = Url.Action("ChangePassword", "Account", new { token }, Request.Url.Scheme);
+            email.ResetLink = Url.Action("ChangePassword", "Account", new { token, area = "" }, Request.Url.Scheme);
 
             email.Send();
 

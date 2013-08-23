@@ -93,6 +93,16 @@ namespace Groupr.Core.Repositories
             return result;
         }
 
+        public List<UserProfile> GetLeaders()
+        {
+            return
+                GetUsers()
+                    .Where(
+                        user =>
+                        Roles.IsUserInRole(user.UserName, WebRoles.Leader))
+                    .ToList();
+        }
+
         public UserProfile GetMemberByUserName(string userName)
         {
             using (var connection = Database.Factory.Open())

@@ -19,6 +19,7 @@
         @Html.DisplayNameFor(model => model.SpeakerName)
       </th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -33,7 +34,10 @@
           @Html.DisplayFor(modelItem => item.SpeakerName)
         </td>
         <td>
-          @Html.ActionLink("Send Invitation", "SendInvitations", new { id = item.Id })
+          @Html.ActionLink("Test invitation", "SendInvitationToLeaders", new { id = item.Id })
+        </td>
+        <td>
+          @Html.ActionLink("Send invitation", "SendInvitationToMembers", new { id = item.Id })
         </td>
       </tr>
     }

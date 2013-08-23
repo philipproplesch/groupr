@@ -32,11 +32,14 @@
           @RenderBody()
         </section>
       </div>
-      <div class="large-4 columns">
-        <div id="signup-panel">
-          @Html.Partial("_SignUpPanel", new RegisterViewModel())
+      @if (!User.Identity.IsAuthenticated)
+      {
+        <div class="large-4 columns">
+          <div id="signup-panel">
+            @Html.Partial("_SignUpPanel", new RegisterViewModel())
+          </div>
         </div>
-      </div>
+      }
     </div>
     <div id="footer-wrapper"></div>
   </section>

@@ -29,8 +29,55 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
             _locationRepository = locationRepository;
             _memberRepository = memberRepository;
         }
+
+        public ActionResult SendInvitationToLeaders(int id)
+        {
+            var meeting = _meetingRepository.GetMeetingById(id);
+            if (meeting == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var location = _locationRepository.GetLocationById(meeting.LocationId);
+
+            var ics = meeting.ToIcs();
+            using (var ms = new MemoryStream())
+            {
+                var bytes = Encoding.UTF8.GetBytes(ics);
+                ms.Write(bytes, 0, bytes.Length);
+
+                var attachment = new Attachment(ms, "Appointment.ics");
+
+                var members = _memberRepository.GetLeaders();
+                foreach (var member in members)
+                {
+                    dynamic email = new Email("Invitation");
+                    email.To = member.MailAddress;
+                    email.FirstName = member.FirstName;
+
+                    email.MeetingId = meeting.Id;
+
+                    email.Name = meeting.Name;
+                    email.Abstract = meeting.Abstract;
+                    email.StartDate = meeting.StartDate;
+                    email.SpeakerName = meeting.SpeakerName;
+                    email.SpeakerWebSite = meeting.SpeakerWebSite;
+
+                    email.LocationName = location.Name;
+                    email.LocationStreet = location.Street;
+                    email.LocationZipCode = location.ZipCode;
+                    email.LocationCity = location.City;
+                    email.LocationWebSite = location.WebSite;
+
+                    email.Attach(attachment);
+                    email.Send();
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
         
-        public ActionResult SendInvitations(int id)
+        public ActionResult SendInvitationToMembers(int id)
         {
             var meeting = _meetingRepository.GetMeetingById(id);
             if (meeting == null)
@@ -74,7 +121,7 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                 }
             }
 
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Index()
