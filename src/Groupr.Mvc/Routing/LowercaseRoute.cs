@@ -41,7 +41,18 @@ namespace Groupr.Mvc.Routing
 
             if (path != null)
             {
-                path.VirtualPath = path.VirtualPath.ToLowerInvariant();
+                if (path.VirtualPath.Contains("?"))
+                {
+                    var segments = path.VirtualPath.Split('?');
+
+                    path.VirtualPath =
+                        string.Concat(
+                            segments[0].ToLowerInvariant(), "?", segments[1]);
+                }
+                else
+                {
+                    path.VirtualPath = path.VirtualPath.ToLowerInvariant();
+                }
             }
 
             return path;
