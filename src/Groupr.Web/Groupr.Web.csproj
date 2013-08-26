@@ -156,6 +156,7 @@
     <Content Include="Content\images\sponsors\jetbrains.png" />
     <Content Include="Content\images\sponsors\microsoft.png" />
     <Content Include="Content\images\sponsors\pluralsight.png" />
+    <Content Include="Content\images\sponsors\postsharp.png" />
     <Content Include="Content\images\sponsors\telerik.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\groupr.compability.js" />

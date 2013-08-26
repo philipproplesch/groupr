@@ -27,19 +27,11 @@
 
   <section id="main-content">
     <div class="row">
-      <div class="large-8 columns">
+      <div class="large-12 columns">
         <section id="main">
           @RenderBody()
         </section>
       </div>
-      @if (!User.Identity.IsAuthenticated)
-      {
-        <div class="large-4 columns">
-          <div id="signup-panel">
-            @Html.Partial("_SignUpPanel", new RegisterViewModel())
-          </div>
-        </div>
-      }
     </div>
     <div id="footer-wrapper"></div>
   </section>

@@ -1,10 +1,10 @@
 ﻿<div class="row">
-  <div class="large-3 columns hide-for-small">
+  <div class="large-2 columns hide-for-small">
     <a href="http://ineta-deutschland.de/" target="_blank">
       <img src="@Url.Content("~/Content/images/logo-ineta-deutschland-user-group.png")" />
     </a>
   </div>
-  <div class="large-9 columns">
+  <div class="large-10 columns">
     <h1>Willkommen!</h1>
     <p>
       Die Planung, Entwicklung und Verteilung von Software stellt mit jedem Tag eine größere Herausforderung dar und in kaum einer anderen Branche gibt es Tag für Tag so viele Neuigkeiten wie in der Informationstechnologie. 
@@ -17,5 +17,9 @@
     <p>
       Wir würden uns freuen Sie bei einem der nächsten Treffen willkommen zu heißen.
     </p>
+    <hr />
+    <div id="signup-panel">
+      @Html.Partial("_SignUpPanel", new RegisterViewModel())
+    </div>
   </div>
 </div>
