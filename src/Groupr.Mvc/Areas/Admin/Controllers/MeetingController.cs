@@ -89,7 +89,7 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
             
             var location = _locationRepository.GetLocationById(meeting.LocationId);
 
-            var members = _memberRepository.GetLeaders();
+            var members = _memberRepository.GetUsers();
             foreach (var member in members)
             {
                 dynamic email = new Email("Invitation");
