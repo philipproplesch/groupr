@@ -10,7 +10,7 @@ am @ViewBag.StartDate.ToShortDateString() um @ViewBag.StartDate.ToShortTimeStrin
 Ja, ich bin dabei!
 @Url.Action("Accept", "Rsvp", new { hash = ((string)ViewBag.To).MD5(), id = ViewBag.MeetingId, area = "" }, Request.Url.Scheme)
 
-Ich bin nicht dabei...
+Nein, ich bin nicht dabei.
 @Url.Action("Decline", "Rsvp", new { hash = ((string)ViewBag.To).MD5(), id = ViewBag.MeetingId, area = "" }, Request.Url.Scheme)
 
 Thema
