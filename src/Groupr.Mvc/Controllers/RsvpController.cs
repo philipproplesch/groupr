@@ -4,7 +4,7 @@ using Groupr.Core.Repositories.Common;
 
 namespace Groupr.Mvc.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class RsvpController : Controller
     {
         private readonly IMemberRepository _memberRepository;
