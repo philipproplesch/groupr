@@ -1,4 +1,8 @@
-﻿<div class="row">
+﻿@section TopRow {
+  @Html.Action("UpcomingEvent", "Home", new { area = string.Empty })
+}
+
+<div class="row">
   <div class="large-2 columns hide-for-small">
     <a href="http://ineta-deutschland.de/" target="_blank">
       <img src="@Url.Content("~/Content/images/logo-ineta-deutschland-user-group.png")" />

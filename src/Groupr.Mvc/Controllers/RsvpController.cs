@@ -18,6 +18,23 @@ namespace Groupr.Mvc.Controllers
             _rsvpRepository = rsvpRepository;
         }
 
+        [Authorize]
+        public ActionResult Attend(int id)
+        {
+            var profile =
+                _memberRepository.GetMemberByUserName(
+                    User.Identity.Name);
+
+            _rsvpRepository.UpdateRsvp(new Rsvp
+            {
+                MemberId = profile.UserId,
+                EventId = id,
+                Status = RsvpStatus.Accepted
+            });
+
+            return View("Accept");
+        }
+
         public ActionResult Accept(string hash, int id)
         {
             var profile =

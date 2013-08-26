@@ -23,7 +23,8 @@
 <body>
   @Html.Partial("_TopBar")
   @Html.Partial("_Header")
-  @*@Html.Action("UpcomingEvent", "Home", new { area = string.Empty })*@
+  
+  @RenderSection("TopRow", false)
 
   <section id="main-content">
     <div class="row">

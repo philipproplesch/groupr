@@ -1,13 +1,13 @@
 ﻿@model UpcomingEventViewModel
 <section class="section-border primary">
   <div class="row" itemscope itemtype="http://schema.org/EducationEvent">
-    <div class="large-3 columns">
+    <div class="large-3 columns event-location">
       <div>
-        <time itemprop="startDate" datetime="2013-02-21T19:00">21.02. um 19 Uhr</time>
+        <time itemprop="startDate" datetime="2013-02-21T19:00">@Model.Event.StartDate.ToShortDateString() um @Model.Event.StartDate.ToShortTimeString() Uhr</time>
       </div>
       <div itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
         <div itemprop="name">
-          <a href="@Model.Location.WebSite" itemprop="url">@Model.Location.Name</a>
+          <a href="@Model.Location.WebSite" itemprop="url" target="_blank">@Model.Location.Name</a>
         </div>
         <div itemprop="streetAddress">
           @Model.Location.Street
@@ -16,23 +16,23 @@
           <span itemprop="postalCode">@Model.Location.ZipCode</span> <span itemprop="addressLocality">@Model.Location.City</span>
         </div>
       </div>
+      <br />
       @if (!string.IsNullOrEmpty(Model.Event.ExternalRegistration))
       {
-        <a class="secondary button small" href="@Model.Event.ExternalRegistration">Teilnehmen</a>
+        <a class="secondary button small" href="@Model.Event.ExternalRegistration" target="_blank">Teilnehmen</a>
       }
       else
       {
-        @Html.ActionLink("Teilnehmen", "Accept", "Rsvp", new { id = Model.Event.Id }, new { @class = "secondary button small" })
+        @Html.ActionLink("Teilnehmen", "Attend", "Rsvp", new { id = Model.Event.Id }, new { @class = "secondary button small" })
       }
-      @Html.ActionLink("iCal", "Ical", "Meeting", new { id = Model.Event.Id }, null)
     </div>
-    <div class="large-9 columns">
+    <div class="large-9 columns speaker-details">
       <header itemprop="name">
-        <h4>@Model.Event.SpeakerName</h4>
+        <h4><a href="@Model.Event.SpeakerWebSite" target="_blank">@Model.Event.SpeakerName</a></h4>
         <h2>@Model.Event.Name</h2>
       </header>
       <p itemprop="description">
-        @Model.Event.Abstract
+        @Html.Raw(Model.Event.Abstract.Replace("\n", "<br />"))
       </p>
     </div>
   </div>

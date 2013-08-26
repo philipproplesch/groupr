@@ -10,6 +10,7 @@ $sectionBorderColor: #FFFFFF;
 
 .section-border.primary {
 	padding: 20px 0;
+	background-color: complement($sectionBorderBackgroundColor);
 }
 
 .section-border {
@@ -26,4 +27,17 @@ $sectionBorderColor: #FFFFFF;
 
 #main-content h1 {
 	font-weight: 300;
+}
+
+.event-location {
+	line-height: 150%;
+	color: #FFFFFF;
+
+	a {
+		color: #FFFFFF;
+	}
+}
+
+.speaker-details, .speaker-details a {
+	color: #FFFFFF;
 }
