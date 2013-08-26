@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net.Mail;
-using System.Text;
 using System.Web.Mvc;
 using AutoMapper;
 using Groupr.Core.Extensions;
@@ -40,56 +37,48 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var location = 
-                _locationRepository.GetLocationById(meeting.LocationId);
-
             var ics = meeting.ToIcs();
-            using (var ms = new MemoryStream())
+
+            var location = _locationRepository.GetLocationById(meeting.LocationId);
+
+            var members = _memberRepository.GetLeaders();
+            foreach (var member in members)
             {
-                var bytes = Encoding.UTF8.GetBytes(ics);
-                ms.Write(bytes, 0, bytes.Length);
+                dynamic email = new Email("Invitation");
+                email.To = member.MailAddress;
+                email.FirstName = member.FirstName;
 
-                var attachment = new Attachment(ms, "Appointment.ics");
+                email.MeetingId = meeting.Id;
 
-                var members = _memberRepository.GetLeaders();
-                foreach (var member in members)
+                email.Name = meeting.Name;
+                email.Abstract = meeting.Abstract;
+                email.StartDate = meeting.StartDate;
+                email.SpeakerName = meeting.SpeakerName;
+                email.SpeakerWebSite = meeting.SpeakerWebSite;
+
+                email.LocationName = location.Name;
+                email.LocationStreet = location.Street;
+                email.LocationZipCode = location.ZipCode;
+                email.LocationCity = location.City;
+                email.LocationWebSite = location.WebSite;
+
+                // TODO: Add iCal as attachment.
+
+                var log = LogManager.GetLogger(GetType());
+                try
                 {
-                    dynamic email = new Email("Invitation");
-                    email.To = member.MailAddress;
-                    email.FirstName = member.FirstName;
-
-                    email.MeetingId = meeting.Id;
-
-                    email.Name = meeting.Name;
-                    email.Abstract = meeting.Abstract;
-                    email.StartDate = meeting.StartDate;
-                    email.SpeakerName = meeting.SpeakerName;
-                    email.SpeakerWebSite = meeting.SpeakerWebSite;
-
-                    email.LocationName = location.Name;
-                    email.LocationStreet = location.Street;
-                    email.LocationZipCode = location.ZipCode;
-                    email.LocationCity = location.City;
-                    email.LocationWebSite = location.WebSite;
-
-                    email.Attach(attachment);
-
-                    var log = LogManager.GetLogger(GetType());
-                    try
-                    {
-                        log.InfoFormat("SendInvitationToLeaders: {0}", member.MailAddress);
-                        email.Send();   
-                    }
-                    catch (Exception ex)
-                    {
-                        log.Error(ex.ToString());
-                    }
+                    log.InfoFormat("SendInvitationToLeaders: {0}", member.MailAddress);
+                    email.Send();
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.ToString());
                 }
             }
 
             return RedirectToAction("Index");
         }
-        
+
         public ActionResult SendInvitationToMembers(int id)
         {
             var meeting = _meetingRepository.GetMeetingById(id);
@@ -97,50 +86,41 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
             {
                 return RedirectToAction("Index");
             }
-
+            
             var location = _locationRepository.GetLocationById(meeting.LocationId);
 
-            var ics = meeting.ToIcs();
-            using (var ms = new MemoryStream())
+            var members = _memberRepository.GetLeaders();
+            foreach (var member in members)
             {
-                var bytes = Encoding.UTF8.GetBytes(ics);
-                ms.Write(bytes, 0, bytes.Length);
+                dynamic email = new Email("Invitation");
+                email.To = member.MailAddress;
+                email.FirstName = member.FirstName;
 
-                var attachment = new Attachment(ms, "Appointment.ics");
+                email.MeetingId = meeting.Id;
 
-                var members = _memberRepository.GetUsers();
-                foreach (var member in members)
+                email.Name = meeting.Name;
+                email.Abstract = meeting.Abstract;
+                email.StartDate = meeting.StartDate;
+                email.SpeakerName = meeting.SpeakerName;
+                email.SpeakerWebSite = meeting.SpeakerWebSite;
+
+                email.LocationName = location.Name;
+                email.LocationStreet = location.Street;
+                email.LocationZipCode = location.ZipCode;
+                email.LocationCity = location.City;
+                email.LocationWebSite = location.WebSite;
+
+                // TODO: Add iCal as attachment.
+                
+                var log = LogManager.GetLogger(GetType());
+                try
                 {
-                    dynamic email = new Email("Invitation");
-                    email.To = member.MailAddress;
-                    email.FirstName = member.FirstName;
-
-                    email.MeetingId = meeting.Id;
-                    
-                    email.Name = meeting.Name;
-                    email.Abstract = meeting.Abstract;
-                    email.StartDate = meeting.StartDate;
-                    email.SpeakerName = meeting.SpeakerName;
-                    email.SpeakerWebSite = meeting.SpeakerWebSite;
-
-                    email.LocationName = location.Name;
-                    email.LocationStreet = location.Street;
-                    email.LocationZipCode = location.ZipCode;
-                    email.LocationCity = location.City;
-                    email.LocationWebSite = location.WebSite;
-
-                    email.Attach(attachment);
-
-                    var log = LogManager.GetLogger(GetType());
-                    try
-                    {
-                        log.InfoFormat("SendInvitationToMembers: {0}", member.MailAddress);
-                        email.Send();
-                    }
-                    catch (Exception ex)
-                    {
-                        log.Error(ex.ToString());
-                    }
+                    log.InfoFormat("SendInvitationToMembers: {0}", member.MailAddress);
+                    email.Send();
+                }
+                catch (Exception ex)
+                {
+                    log.Error(ex.ToString());
                 }
             }
 
