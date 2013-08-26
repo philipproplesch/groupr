@@ -18,10 +18,10 @@ namespace Groupr.Mvc.Controllers
             _rsvpRepository = rsvpRepository;
         }
 
-        public ActionResult Accept(int id)
+        public ActionResult Accept(string hash, int id)
         {
-            var profile = 
-                _memberRepository.GetMemberByUserName(User.Identity.Name);
+            var profile =
+                _memberRepository.GetMemberByHash(hash);
 
             _rsvpRepository.UpdateRsvp(new Rsvp
                 {
@@ -33,17 +33,17 @@ namespace Groupr.Mvc.Controllers
             return View();
         }
 
-        public ActionResult Decline(int id)
+        public ActionResult Decline(string hash, int id)
         {
             var profile =
-                _memberRepository.GetMemberByUserName(User.Identity.Name);
+                _memberRepository.GetMemberByHash(hash);
 
             _rsvpRepository.UpdateRsvp(new Rsvp
-            {
-                MemberId = profile.UserId,
-                EventId = id,
-                Status = RsvpStatus.Declined
-            });
+                {
+                    MemberId = profile.UserId,
+                    EventId = id,
+                    Status = RsvpStatus.Declined
+                });
 
             return View();
         }

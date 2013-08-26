@@ -1,4 +1,5 @@
-﻿To: @ViewBag.To
+﻿@using Groupr.Core.Extensions
+To: @ViewBag.To
 From: no-reply@netug-niederrhein.de
 Subject: Einladung zum Treffen der netug-niederrhein
 
@@ -7,10 +8,10 @@ Hallo @ViewBag.FirstName,
 am @ViewBag.StartDate.ToShortDateString() um @ViewBag.StartDate.ToShortTimeString() findet das nächste Treffen statt.
 
 Ja, ich bin dabei!
-@Url.Action("Accept", "Rsvp", new { id = ViewBag.MeetingId, area = "" }, Request.Url.Scheme)
+@Url.Action("Accept", "Rsvp", new { hash = ((string)ViewBag.To).MD5(), id = ViewBag.MeetingId, area = "" }, Request.Url.Scheme)
 
 Ich bin nicht dabei...
-@Url.Action("Decline", "Rsvp", new { id = ViewBag.MeetingId, area = ""  }, Request.Url.Scheme)
+@Url.Action("Decline", "Rsvp", new { hash = ((string)ViewBag.To).MD5(), id = ViewBag.MeetingId, area = "" }, Request.Url.Scheme)
 
 Thema
 =====

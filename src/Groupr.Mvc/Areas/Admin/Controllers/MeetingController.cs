@@ -38,7 +38,8 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            var location = _locationRepository.GetLocationById(meeting.LocationId);
+            var location = 
+                _locationRepository.GetLocationById(meeting.LocationId);
 
             var ics = meeting.ToIcs();
             using (var ms = new MemoryStream())

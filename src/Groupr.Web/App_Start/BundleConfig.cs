@@ -1,6 +1,8 @@
 ﻿using System.Web.Optimization;
 
+// ReSharper disable CheckNamespace
 namespace Groupr.Web
+// ReSharper restore CheckNamespace
 {
     public class BundleConfig
     {

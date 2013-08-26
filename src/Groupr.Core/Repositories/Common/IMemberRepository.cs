@@ -10,5 +10,6 @@ namespace Groupr.Core.Repositories.Common
         List<UserProfile> GetUsers();
         List<UserProfile> GetLeaders();
         UserProfile GetMemberByUserName(string userName);
+        UserProfile GetMemberByHash(string hash);
     }
 }

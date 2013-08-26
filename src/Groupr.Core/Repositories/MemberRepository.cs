@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Security;
 using Groupr.Core.Data;
+using Groupr.Core.Extensions;
 using Groupr.Core.Membership;
 using Groupr.Core.Repositories.Common;
 using Groupr.Core.Security;
@@ -107,7 +108,21 @@ namespace Groupr.Core.Repositories
         {
             using (var connection = Database.Factory.Open())
             {
-                var user = connection.First<UserProfile>(x => x.UserName == userName);
+                var user = connection.FirstOrDefault<UserProfile>(x => x.UserName == userName);
+                if (user != null)
+                {
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
+        public UserProfile GetMemberByHash(string hash)
+        {
+            using (var connection = Database.Factory.Open())
+            {
+                var user = connection.Select<UserProfile>().FirstOrDefault(x => x.MailAddress.MD5() == hash);
                 if (user != null)
                 {
                     return user;
