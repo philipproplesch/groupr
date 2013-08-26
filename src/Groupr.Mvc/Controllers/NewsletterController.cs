@@ -1,8 +1,10 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Groupr.Core.Membership;
 using Groupr.Core.Repositories.Common;
 using Groupr.Mvc.ViewModels;
 using Postal;
+using ServiceStack.Logging;
 using WebMatrix.WebData;
 
 namespace Groupr.Mvc.Controllers
@@ -45,7 +47,17 @@ namespace Groupr.Mvc.Controllers
             email.To = model.MailAddress;
             email.FirstName = model.FirstName;
             email.OptInLink = Url.Action("OptIn", "Newsletter", new { token }, Request.Url.Scheme);
-            email.Send();
+
+            var log = LogManager.GetLogger(GetType());
+            try
+            {
+                log.InfoFormat("SignUp: {0}", model.MailAddress);
+                email.Send();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.ToString());
+            }
 
             return PartialView("_SignUpSucceededPanel");
         }
@@ -81,7 +93,16 @@ namespace Groupr.Mvc.Controllers
             email.FirstName = profile.FirstName;
             email.OptOutLink = Url.Action("OptOut", "Newsletter", new { token }, Request.Url.Scheme);
 
-            email.Send();
+            var log = LogManager.GetLogger(GetType());
+            try
+            {
+                log.InfoFormat("SendEmail: {0}", profile.MailAddress);
+                email.Send();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.ToString());
+            }
         }
     }
 }

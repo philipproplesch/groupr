@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Security;
 using Groupr.Mvc.ViewModels;
 using Postal;
+using ServiceStack.Logging;
 using WebMatrix.WebData;
 
 namespace Groupr.Mvc.Controllers
@@ -61,7 +63,16 @@ namespace Groupr.Mvc.Controllers
             email.To = model.MailAddress;
             email.ResetLink = Url.Action("ChangePassword", "Account", new { token, area = "" }, Request.Url.Scheme);
 
-            email.Send();
+            var log = LogManager.GetLogger(GetType());
+            try
+            {
+                log.InfoFormat("ForgotPassword: {0}", model.MailAddress);
+                email.Send();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.ToString());
+            }
 
             return RedirectToAction("Login");
         }

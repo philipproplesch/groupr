@@ -3,6 +3,8 @@ using Groupr.Core.Data;
 using Groupr.Core.Repositories;
 using Groupr.Core.Repositories.Common;
 using Microsoft.Practices.ServiceLocation;
+using ServiceStack.Logging;
+using ServiceStack.Logging.Log4Net;
 using ServiceStack.OrmLite;
 using ServiceStack.OrmLite.SqlServer;
 using StructureMap;
@@ -15,6 +17,8 @@ namespace Groupr.Core.Infrastructure
         {
             ConfigureIocContainer();
             ConfigureConnectionFactory();
+
+            LogManager.LogFactory = new Log4NetFactory(true);
         }
 
         private static void ConfigureIocContainer()

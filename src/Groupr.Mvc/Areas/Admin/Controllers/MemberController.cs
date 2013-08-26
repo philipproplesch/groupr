@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Groupr.Core.Data;
 using Groupr.Core.Membership;
 using Postal;
+using ServiceStack.Logging;
 using ServiceStack.OrmLite;
 using WebMatrix.WebData;
 
@@ -37,7 +39,16 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                             new {token, area = ""},
                             Request.Url.Scheme);
 
-                    email.Send();
+                    var log = LogManager.GetLogger(GetType());
+                    try
+                    {
+                        log.InfoFormat("SendPasswortResetPrompt: {0}", profile.MailAddress);
+                        email.Send();
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(ex.ToString());
+                    }
                 }
             }
 

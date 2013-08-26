@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -10,6 +11,7 @@ using Groupr.Core.Models;
 using Groupr.Core.Repositories.Common;
 using Groupr.Mvc.ViewModels;
 using Postal;
+using ServiceStack.Logging;
 
 namespace Groupr.Mvc.Areas.Admin.Controllers
 {
@@ -71,7 +73,17 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                     email.LocationWebSite = location.WebSite;
 
                     email.Attach(attachment);
-                    email.Send();
+
+                    var log = LogManager.GetLogger(GetType());
+                    try
+                    {
+                        log.InfoFormat("SendInvitationToLeaders: {0}", member.MailAddress);
+                        email.Send();   
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(ex.ToString());
+                    }
                 }
             }
 
@@ -118,7 +130,17 @@ namespace Groupr.Mvc.Areas.Admin.Controllers
                     email.LocationWebSite = location.WebSite;
 
                     email.Attach(attachment);
-                    email.Send();
+
+                    var log = LogManager.GetLogger(GetType());
+                    try
+                    {
+                        log.InfoFormat("SendInvitationToMembers: {0}", member.MailAddress);
+                        email.Send();
+                    }
+                    catch (Exception ex)
+                    {
+                        log.Error(ex.ToString());
+                    }
                 }
             }
 
