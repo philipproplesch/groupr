@@ -2,6 +2,7 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using Groupr.Core.Infrastructure;
+using Groupr.Mvc;
 
 namespace Groupr.Web
 {
@@ -11,6 +12,9 @@ namespace Groupr.Web
     {
         protected void Application_Start()
         {
+            ModelMetadataProviders.Current =
+                new LocalizedModelMetadataProvider();
+
             AreaRegistration.RegisterAllAreas();
             
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

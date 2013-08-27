@@ -104,5 +104,10 @@ namespace Groupr.Mvc.Controllers
                 log.Error(ex.ToString());
             }
         }
+
+        public bool ValidateEmail(string mailaddress)
+        {
+            return false;
+        }
     }
 }

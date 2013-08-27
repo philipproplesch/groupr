@@ -1,19 +1,28 @@
 ﻿@model UpcomingEventViewModel
 <section class="section-border primary">
-  <div class="row" itemscope itemtype="http://schema.org/EducationEvent">
-    <div class="large-3 columns event-location">
+  <div class="row">
+    <div class="large-9 columns">
+      <header>
+        <h4><a href="@Model.Event.SpeakerWebSite" target="_blank">@Model.Event.SpeakerName</a></h4>
+        <h2>@Model.Event.Name</h2>
+      </header>
+      <p>
+        @Html.Raw(Model.Event.Abstract.Replace("\n", "<br />"))
+      </p>
+    </div>
+    <div class="large-3 columns">
       <div>
-        <time itemprop="startDate" datetime="2013-02-21T19:00">@Model.Event.StartDate.ToShortDateString() um @Model.Event.StartDate.ToShortTimeString() Uhr</time>
+        <time>@Model.Event.StartDate.ToShortDateString() um @Model.Event.StartDate.ToShortTimeString() Uhr</time>
       </div>
-      <div itemprop="location" itemscope itemtype="http://schema.org/PostalAddress">
-        <div itemprop="name">
-          <a href="@Model.Location.WebSite" itemprop="url" target="_blank">@Model.Location.Name</a>
+      <div>
+        <div>
+          <a href="@Model.Location.WebSite" target="_blank">@Model.Location.Name</a>
         </div>
-        <div itemprop="streetAddress">
+        <div>
           @Model.Location.Street
         </div>
         <div>
-          <span itemprop="postalCode">@Model.Location.ZipCode</span> <span itemprop="addressLocality">@Model.Location.City</span>
+          <span>@Model.Location.ZipCode</span> <span>@Model.Location.City</span>
         </div>
       </div>
       <br />
@@ -25,15 +34,6 @@
       {
         @Html.ActionLink("Teilnehmen", "Attend", "Rsvp", new { id = Model.Event.Id }, new { @class = "secondary button small" })
       }
-    </div>
-    <div class="large-9 columns speaker-details">
-      <header itemprop="name">
-        <h4><a href="@Model.Event.SpeakerWebSite" target="_blank">@Model.Event.SpeakerName</a></h4>
-        <h2>@Model.Event.Name</h2>
-      </header>
-      <p itemprop="description">
-        @Html.Raw(Model.Event.Abstract.Replace("\n", "<br />"))
-      </p>
     </div>
   </div>
 </section>

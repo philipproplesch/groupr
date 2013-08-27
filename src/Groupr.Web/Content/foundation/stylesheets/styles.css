@@ -1,3 +1,7 @@
+.contain-to-grid .top-bar {
+  margin-bottom: 0;
+}
+
 .section-border {
   background-color: #0099cc;
   padding: 20px 0;

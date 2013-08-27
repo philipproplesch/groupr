@@ -1,32 +1,28 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Groupr.Mvc.ViewModels
 {
     public class RegisterViewModel
     {
         [Required]
-        [DisplayName("Vorname")]
         public string FirstName { get; set; }
 
         [Required]
-        [DisplayName("Nachname")]
         public string LastName { get; set; }
 
         [Required]
         [EmailAddress]
+        [Remote("ValidateEmail", "Newsletter")]
         [DataType(DataType.EmailAddress)]
-        [DisplayName("E-Mail")]
         public string MailAddress { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [DisplayName("Passwort")]
         public string Password { get; set; }
 
         [Required]
-        [Compare("Password")]
-        [DisplayName("Passwort wiederholen")]
+        [System.ComponentModel.DataAnnotations.Compare("Password")]
         public string RetypePassword { get; set; }
     }
 }

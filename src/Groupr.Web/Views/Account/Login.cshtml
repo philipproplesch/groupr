@@ -1,11 +1,11 @@
 ﻿@model LoginViewModel
 
 @{
-  ViewBag.Title = "Login";
+  ViewBag.Title = Labels.Login;
   Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Login</h3>
+<h3>@Labels.Login</h3>
 
 @using (Html.BeginForm())
 {
@@ -15,7 +15,7 @@
   @Html.LabelFor(model => model.Password)
   @Html.EditorFor(model => model.Password)
 
-  <input type="submit" class="small button" value="Anmelden" />
+  <input type="submit" class="small button" value="@Labels.Login" />
   
-  @Html.ActionLink("Passwort vergessen?", "ForgotPassword", null, new { @class="small button success" })
+  @Html.ActionLink(Labels.ForgotPassword, "ForgotPassword", null, new { @class="small button success" })
 }

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Groupr.Mvc.ViewModels
 {
@@ -8,7 +7,10 @@ namespace Groupr.Mvc.ViewModels
         public string Token { get; set; }
 
         [Required]
-        [DisplayName("Neues Passwort")]
         public string NewPassword { get; set; }
+
+        [Required]
+        [Compare("NewPassword")]
+        public string ConfirmNewPassword { get; set; }
     }
 }

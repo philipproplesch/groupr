@@ -3,6 +3,10 @@
 $sectionBorderBackgroundColor: #0099CC;
 $sectionBorderColor: #FFFFFF;
 
+.contain-to-grid .top-bar {
+	margin-bottom: 0;
+}
+
 .section-border {
 	background-color: $sectionBorderBackgroundColor;
 	padding: 20px 0;
