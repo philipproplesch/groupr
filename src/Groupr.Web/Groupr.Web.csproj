@@ -149,6 +149,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\foundation\javascripts\foundation\foundation.abide.js" />
     <Content Include="Content\foundation\javascripts\foundation\foundation.alerts.js" />
     <Content Include="Content\foundation\javascripts\foundation\foundation.clearing.js" />
     <Content Include="Content\foundation\javascripts\foundation\foundation.cookie.js" />

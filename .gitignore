@@ -159,3 +159,6 @@ tmp/
 
 # Sass
 .sass-cache
+
+# Custom
+src/Groupr.Web/App_Data/*.log.*
