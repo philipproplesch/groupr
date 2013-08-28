@@ -117,61 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="City" xml:space="preserve">
-    <value>City</value>
-  </data>
-  <data name="ConfirmNewPassword" xml:space="preserve">
-    <value>Confirm new password</value>
-  </data>
-  <data name="FirstName" xml:space="preserve">
-    <value>First name</value>
-  </data>
-  <data name="ForgotPassword" xml:space="preserve">
-    <value>Forgot password?</value>
-  </data>
-  <data name="LastName" xml:space="preserve">
-    <value>Last name</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="MailAddress" xml:space="preserve">
-    <value>Email address</value>
-  </data>
-  <data name="MaxAttendees" xml:space="preserve">
-    <value>Attendee limit</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="NewPassword" xml:space="preserve">
-    <value>New password</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="RequestNewPassword" xml:space="preserve">
-    <value>Request new password</value>
-  </data>
-  <data name="ResetPassword" xml:space="preserve">
-    <value>Reset password</value>
-  </data>
-  <data name="RetypePassword" xml:space="preserve">
-    <value>Confirm password</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>Sign up</value>
-  </data>
-  <data name="Street" xml:space="preserve">
-    <value>Street</value>
-  </data>
-  <data name="TwitterHandle" xml:space="preserve">
-    <value>Twitter username</value>
-  </data>
-  <data name="WebSite" xml:space="preserve">
-    <value>Web site</value>
-  </data>
-  <data name="ZipCode" xml:space="preserve">
-    <value>Zip code</value>
+  <data name="MailAddressInUse" xml:space="preserve">
+    <value>The entered mail address is already in use.</value>
   </data>
 </root>

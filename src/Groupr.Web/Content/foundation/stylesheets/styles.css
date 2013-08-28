@@ -7,15 +7,19 @@
   padding: 20px 0;
 }
 
-.section-border.primary {
-  padding: 20px 0;
-  background-color: #cc3300;
-}
-
 .section-border h1, .section-border h2, .section-border h3, .section-border h4, .section-border h5, .section-border h6 {
   color: white;
   font-weight: 300;
   margin: 0;
+}
+
+.section-border.upcoming-event {
+  padding: 20px 0;
+  background-color: #cc3300;
+  color: #FFFFFF;
+}
+.section-border.upcoming-event a:not(.button) {
+  color: #FFFFFF;
 }
 
 #main-content {
@@ -24,16 +28,4 @@
 
 #main-content h1 {
   font-weight: 300;
-}
-
-.event-location {
-  line-height: 150%;
-  color: #FFFFFF;
-}
-.event-location a {
-  color: #FFFFFF;
-}
-
-.speaker-details, .speaker-details a {
-  color: #FFFFFF;
 }

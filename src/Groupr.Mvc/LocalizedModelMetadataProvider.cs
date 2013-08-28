@@ -11,11 +11,11 @@ namespace Groupr.Mvc
         : DataAnnotationsModelMetadataProvider
     {
         protected override ModelMetadata CreateMetadata(
-       IEnumerable<Attribute> attributes,
-       Type containerType,
-       Func<object> modelAccessor,
-       Type modelType,
-       string propertyName)
+            IEnumerable<Attribute> attributes,
+            Type containerType,
+            Func<object> modelAccessor,
+            Type modelType,
+            string propertyName)
         {
             if (string.IsNullOrEmpty(propertyName))
             {

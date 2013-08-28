@@ -3,23 +3,24 @@
 <div class="panel">
   <h5>Registrieren</h5>
   <p>Kostenlos Mitglied werden und über alle Termine und Veranstaltungen informiert werden.</p>
+
   @using (Ajax.BeginForm("SignUp", "Newsletter", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "signup-panel" }))
   {
-    @Html.LabelFor(model => model.FirstName, new { @class = "no-placeholder" })
-    @Html.TextBoxFor(model => model.FirstName, new { placeholder = "Vorname" })
+    @Html.LabelFor(model => model.FirstName)
+    @Html.TextBoxFor(model => model.FirstName, new { placeholder = Labels.FirstName })
 
-    @Html.LabelFor(model => model.LastName, new { @class = "no-placeholder" })
-    @Html.TextBoxFor(model => model.LastName, new { placeholder = "Nachname" })
+    @Html.LabelFor(model => model.LastName)
+    @Html.TextBoxFor(model => model.LastName, new { placeholder = Labels.LastName })
 
-    @Html.LabelFor(model => model.MailAddress, new { @class = "no-placeholder" })
-    @Html.TextBoxFor(model => model.MailAddress, new { placeholder = "E-Mail" })
+    @Html.LabelFor(model => model.MailAddress)
+    @Html.TextBoxFor(model => model.MailAddress, new { placeholder = Labels.MailAddress })
 
-    @Html.LabelFor(model => model.Password, new { @class = "no-placeholder" })
-    @Html.PasswordFor(model => model.Password, new { placeholder = "Passwort" })
+    @Html.LabelFor(model => model.Password)
+    @Html.PasswordFor(model => model.Password, new { placeholder = Labels.Password })
 
-    @Html.LabelFor(model => model.RetypePassword, new { @class = "no-placeholder" })
-    @Html.PasswordFor(model => model.RetypePassword, new { placeholder = "Passwort wiederholen" })
+    @Html.LabelFor(model => model.RetypePassword)
+    @Html.PasswordFor(model => model.RetypePassword, new { placeholder = Labels.RetypePassword })
 
-    <input type="submit" class="small button" value="Anmelden" />
+    <input type="submit" class="small button" value="@Labels.SignUp" />
   }
 </div>

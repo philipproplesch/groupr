@@ -20,8 +20,7 @@ namespace Groupr.Web
                         "~/Content/font-awesome.css",
                         "~/Content/foundation/stylesheets/app.css",
                         "~/Content/foundation/stylesheets/styles.css",
-                        "~/Content/groupr.forms.css",
-                        "~/Content/groupr.compability.css"));
+                        "~/Content/groupr.forms.css"));
         }
 
         private static void RegisterScriptBundle(BundleCollection bundles)

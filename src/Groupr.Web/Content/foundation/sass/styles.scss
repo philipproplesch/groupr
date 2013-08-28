@@ -12,16 +12,21 @@ $sectionBorderColor: #FFFFFF;
 	padding: 20px 0;
 }
 
-.section-border.primary {
-	padding: 20px 0;
-	background-color: complement($sectionBorderBackgroundColor);
-}
-
 .section-border {
 	#{headings(all)} {
 		color: $sectionBorderColor;
 		font-weight: 300;
 		margin: 0;
+	}
+}
+
+.section-border.upcoming-event {
+	padding: 20px 0;
+	background-color: complement($sectionBorderBackgroundColor);
+	color: #FFFFFF;
+
+	a:not(.button) {
+			color: #FFFFFF;
 	}
 }
 
@@ -31,17 +36,4 @@ $sectionBorderColor: #FFFFFF;
 
 #main-content h1 {
 	font-weight: 300;
-}
-
-.event-location {
-	line-height: 150%;
-	color: #FFFFFF;
-
-	a {
-		color: #FFFFFF;
-	}
-}
-
-.speaker-details, .speaker-details a {
-	color: #FFFFFF;
 }

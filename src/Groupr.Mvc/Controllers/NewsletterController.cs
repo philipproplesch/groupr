@@ -105,9 +105,10 @@ namespace Groupr.Mvc.Controllers
             }
         }
 
-        public bool ValidateEmail(string mailaddress)
+        public JsonResult ValidateEmail(string mailaddress)
         {
-            return false;
+            var user = _memberRepository.GetMemberByUserName(mailaddress);
+            return Json(user == null, JsonRequestBehavior.AllowGet);
         }
     }
 }

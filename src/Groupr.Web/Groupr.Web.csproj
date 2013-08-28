@@ -171,7 +171,6 @@
     <Content Include="Content\groupr.forms.css" />
     <Content Include="Content\foundation\stylesheets\app.css" />
     <Content Include="Content\foundation\stylesheets\styles.css" />
-    <Content Include="Content\groupr.compability.css" />
     <Content Include="Content\images\logo-ineta-deutschland-user-group.png" />
     <Content Include="Content\images\sponsors\jetbrains.png" />
     <Content Include="Content\images\sponsors\microsoft.png" />
@@ -179,7 +178,6 @@
     <Content Include="Content\images\sponsors\postsharp.png" />
     <Content Include="Content\images\sponsors\telerik.png" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\groupr.compability.js" />
     <Content Include="Scripts\groupr.js" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />

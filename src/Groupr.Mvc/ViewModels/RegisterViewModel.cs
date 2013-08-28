@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using Groupr.Mvc.Resources;
 
 namespace Groupr.Mvc.ViewModels
 {
@@ -13,7 +14,7 @@ namespace Groupr.Mvc.ViewModels
 
         [Required]
         [EmailAddress]
-        [Remote("ValidateEmail", "Newsletter")]
+        [Remote("ValidateEmail", "Newsletter", ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = "MailAddressInUse")]
         [DataType(DataType.EmailAddress)]
         public string MailAddress { get; set; }
 
@@ -22,7 +23,7 @@ namespace Groupr.Mvc.ViewModels
         public string Password { get; set; }
 
         [Required]
-        [System.ComponentModel.DataAnnotations.Compare("Password")]
+        [System.Web.Mvc.Compare("Password")]
         public string RetypePassword { get; set; }
     }
 }
