@@ -26,14 +26,12 @@
         </div>
       </div>
       <br />
-      @if (!string.IsNullOrEmpty(Model.Event.ExternalRegistration))
-      {
-        <a class="secondary button small" href="@Model.Event.ExternalRegistration" target="_blank">Teilnehmen</a>
-      }
-      else
-      {
-        @Html.ActionLink("Teilnehmen", "Attend", "Rsvp", new { id = Model.Event.Id }, new { @class = "secondary button small" })
-      }
+      <ul class="button-group">
+        <li>
+          <a class="secondary small button" href="@(!string.IsNullOrEmpty(Model.Event.ExternalRegistration) ? Model.Event.ExternalRegistration : Url.Action("Attend", "Rsvp", new { id = Model.Event.Id }))"><i class="icon-ticket"></i> @Labels.Attend</a>
+        </li>
+        <li><a href="@Html.MapUrl(Model.Location)" target="_blank" class="secondary small button"><i class="icon-map-marker"></i> @Labels.Map</a></li>
+      </ul>
     </div>
   </div>
 </section>

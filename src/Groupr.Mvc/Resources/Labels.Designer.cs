@@ -61,6 +61,15 @@ namespace Groupr.Mvc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attend.
+        /// </summary>
+        public static string Attend {
+            get {
+                return ResourceManager.GetString("Attend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City.
         /// </summary>
         public static string City {
@@ -120,6 +129,15 @@ namespace Groupr.Mvc.Resources {
         public static string MailAddress {
             get {
                 return ResourceManager.GetString("MailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map.
+        /// </summary>
+        public static string Map {
+            get {
+                return ResourceManager.GetString("Map", resourceCulture);
             }
         }
         
